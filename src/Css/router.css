@@ -1,0 +1,11 @@
+.countrydiv {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.countryflag {
+    width: 10%; 
+    height: 4%;
+    position: absolute;
+    right: 5%;
+}

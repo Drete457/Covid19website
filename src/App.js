@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReturnJSon from './Controllers/return-json'
+import './Css/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const urlAllInfo = 'https://disease.sh/v2/all';
+//const urlCountrysAllInfo = "https://disease.sh/v2/countries";
+
+export default function App() {
+
+    let data = < ReturnJSon url={urlAllInfo} />;
+    
+    return ( 
+        <div className="list">
+            <h1>teste</h1>   
+           {data}
     </div>
-  );
-}
+    );
 
-export default App;
+}

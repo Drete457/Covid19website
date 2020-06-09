@@ -26,6 +26,14 @@ export default function Router() {
 
   return (
     <div className="mainbody" key="mainbody">
+      <div className="view" key="view">
+        <CountryList key="countrylist"
+          cases={globalData.cases}
+          deaths={globalData.deaths}
+          recovered={globalData.recovered}
+          countries={countriesData}
+        />
+</div>
       <div className="mapview" key="mapview">
         <MapView countries={countriesData} type="cases" />
       </div>

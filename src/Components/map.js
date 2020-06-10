@@ -17,7 +17,6 @@ export default function MapView(props) {
             <Circle key={country.country}
               center={[country.countryInfo.lat, country.countryInfo.long]}
               fillColor="blue"
-              fill="true"
               radius={country[props.type]}
             />
           );

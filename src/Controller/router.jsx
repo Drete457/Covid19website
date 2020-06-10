@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import Data from "../Service/api";
 import CountryList from "../Components/country-list";
 import MapView from "../Components/map";
+import Grafic from "../Components/grafic"
 import "../Css/router.css";
 
 const urlAllInfo = "https://disease.sh/v2/all";
 const urlCountrysAllInfo = "https://disease.sh/v2/countries";
+const urlHistoricalData = "https://disease.sh/v2/historical/all?lastdays=30";
 
 export default function Router() {
   const [globalData, setGlobalData] = useState("");
@@ -26,7 +28,7 @@ export default function Router() {
 
   return (
     <div className="mainbody" key="mainbody">
-      <div className="view" key="view">
+       <div className="view" key="view">
         <CountryList key="countrylist"
           cases={globalData.cases}
           deaths={globalData.deaths}
@@ -37,15 +39,22 @@ export default function Router() {
       <div className="mapview" key="mapview">
         <MapView countries={countriesData} type="cases" />
       </div>
+      <div className="graficview" key="graficview">
+      <Grafic/>
+      </div>
     </div>
   );
 }
 
-/*<div className="view" key="view">
+/* <div className="view" key="view">
         <CountryList key="countrylist"
           cases={globalData.cases}
           deaths={globalData.deaths}
           recovered={globalData.recovered}
           countries={countriesData}
         />
-</div>*/
+</div>
+      <div className="mapview" key="mapview">
+        <MapView countries={countriesData} type="cases" />
+      </div>
+      <Grafic/>*/

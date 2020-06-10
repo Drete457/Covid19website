@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import CreateList from "../Functions/functions";
+import { CreateList } from "../Functions/functions";
 import "react-tabs/style/react-tabs.css";
 
 export default function CountryList(props) {

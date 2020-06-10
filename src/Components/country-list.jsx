@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { CreateList } from "../Functions/functions";
+import { Update } from "../Controller/router";
 import "react-tabs/style/react-tabs.css";
+import "../Css/country-list.css";
 
 export default function CountryList(props) {
   let [countrylist, setCountryList] = useState(0);
@@ -26,26 +28,31 @@ export default function CountryList(props) {
   return (
     <div className="separators">
       <Tabs key="tabs">
-        <TabList key="tablist">
+        <TabList key="tablist" className="tablist">
           <Tab
             key="cases"
-            onClick={() => setCountryList(CreateList(props.countries, "cases"))}
+            onClick={() => {
+              setCountryList(CreateList(props.countries, "cases"))
+              Update("cases");
+            }}
           >
             CASES
           </Tab>
           <Tab
             key="deaths"
-            onClick={() =>
+            onClick={() => {
               setCountryList(CreateList(props.countries, "deaths"))
-            }
+              Update("deaths");
+            }}
           >
             DEATHS
           </Tab>
           <Tab
             key="recovered"
-            onClick={() =>
+            onClick={() => {
               setCountryList(CreateList(props.countries, "recovered"))
-            }
+              Update("recovered");
+            }}
           >
             RECOVERED
           </Tab>

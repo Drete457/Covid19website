@@ -5,7 +5,7 @@ import Router from './Controller/router';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Router />, 
+  <Router select="cases" />, 
   document.getElementById('root')
 );
 

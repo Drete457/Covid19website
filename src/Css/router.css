@@ -1,12 +1,22 @@
 .countrydiv {
-    padding: 10px;
-    font-size: 18px;
+  padding: 10px;
+  font-size: 18px;
 }
 
 .countryflag {
-    width: 10%; 
-    height: 4%;
-    position: absolute;
-    right: 5%;
+  width: 10%;
+  height: 4%;
+  position: absolute;
+  right: 5%;
 }
 
+.separators {
+  background-color: white;
+  padding: 20px;
+  height: 500px;
+  width: 350px;
+  overflow: auto;
+  float: left;
+  position: relative;
+  margin-left: -5px;
+}

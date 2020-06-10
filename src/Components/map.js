@@ -6,7 +6,9 @@ import "../Css/map.css";
 export default function MapView(props) {
   let [countries, setCountries] = useState("");
 
-  useEffect(() => { setCountries(props.countries) }, [props.countries]);
+  useEffect(() => {
+    setCountries(props.countries);
+  }, [props.countries]);
  
   return (
     <div>

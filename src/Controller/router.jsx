@@ -14,7 +14,7 @@ export default function Router(select) {
   const [globalData, setGlobalData] = useState("");
   const [countriesData, setCountriesData] = useState("");
   const [historicalData, setHistoricalData] = useState("");
-  const [type, setType] = useState("");
+  let [type, setType] = useState("");
 
   useEffect(() => {
     if (globalData.length === 0) {

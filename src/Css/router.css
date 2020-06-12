@@ -1,22 +1,24 @@
-.countrydiv {
-  padding: 10px;
-  font-size: 18px;
+.mainbody {
+  display: inline-flex;
 }
 
-.countryflag {
-  width: 10%;
-  height: 4%;
-  position: absolute;
-  right: 5%;
+.view {
+  position: relative;
 }
 
-.separators {
-  background-color: white;
-  padding: 20px;
-  height: 500px;
-  width: 350px;
-  overflow: auto;
+.mapview,
+.graficview {
+  background-color: whitesmoke;
+  margin-left: 1.5%;
+  min-height: 350px;
+  min-width: 350px;
+  height: 46vh;
+  width: 75vw;
+  overflow: hidden;
   float: left;
   position: relative;
-  margin-left: -5px;
+}
+
+.graficview {
+  margin-top: 1.95%;
 }

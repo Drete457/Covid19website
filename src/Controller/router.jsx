@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from 'react-dom';
 import Data from "../Service/api";
 import CountryList from "../Components/country-list";
 import MapView from "../Components/map";
@@ -36,11 +35,13 @@ export default function Router(select) {
           countries={countriesData}
         />
       </div>
-      <div className="mapview" key="mapview">
-        <MapView key="mapview" countries={countriesData} type={type} />
-      </div>
-      <div className="graficview" key="graficview">
-        <Grafic dataHistorical={historicalData} type={type} />
+      <div className="data">
+        <div className="mapview" key="mapview">
+          <MapView key="mapview" countries={countriesData} type={type} />
+        </div>
+        <div className="graficview" key="graficview">
+          <Grafic dataHistorical={historicalData} type={type} />
+        </div>
       </div>
     </div>
   );
@@ -50,11 +51,4 @@ function setUseState(url, set) {
   Data(url).then((result) => {
     set(result);
   });
-}
-
-export function Update(select) {
-  ReactDOM.render(
-    <Router select={select} />, 
-    document.getElementById('root')
-  );
 }

@@ -9,10 +9,10 @@ export default function MapView(props) {
   useEffect(() => {
     setCountries(props.countries);
   }, [props.countries]);
- 
+
   return (
     <div>
-      <Map id="mapview" className="mapview" center={[38.7071, -9.13549]} zoom={2} maxZoom={30} touchstart={"false"}>
+      <Map id="mapview" className="mapview" center={[38.7071, -9.13549]} zoom={3} maxZoom={30} >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {Array.from(countries).map((country) => {
           return (

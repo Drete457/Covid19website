@@ -1,5 +1,31 @@
 .tablist {
-    text-shadow: #000 0.2em 0.3em 0.2em;
-    font-size: 16px;
-    font-weight: bold;
+  text-shadow: #000 0.2em 0.3em 0.2em;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.countrydiv {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.countryflag {
+  width: 10%;
+  height: 4%;
+  position: absolute;
+  right: 5%;
+}
+
+.separators {
+  background-color: whitesmoke;
+  height: 95vh;
+  width: 400px;
+  overflow: auto;
+  float: left;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.tab {
+  text-align: center;
 }

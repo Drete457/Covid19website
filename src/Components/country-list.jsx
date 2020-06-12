@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { CreateList } from "../Functions/functions";
-import { Update } from "../Controller/router";
+import Update from "../Controller/update";
 import "react-tabs/style/react-tabs.css";
 import "../Css/country-list.css";
 
@@ -57,14 +57,14 @@ export default function CountryList(props) {
             RECOVERED
           </Tab>
         </TabList>
-        <TabPanel key="casesview">
-          <h1>Total Cases: {props.cases}</h1>
+        <TabPanel key="casesview" className="tab">
+          <h2>Total Cases: {props.cases}</h2>
         </TabPanel>
-        <TabPanel key="deathsview">
-          <h1>Total Deaths: {props.deaths}</h1>
+        <TabPanel key="deathsview" className="tab">
+          <h2>Total Deaths: {props.deaths}</h2>
         </TabPanel>
-        <TabPanel key="recoveredview">
-          <h1>Total Recovered: {props.recovered}</h1>
+        <TabPanel key="recoveredview" className="tab">
+          <h2>Total Recovered: {props.recovered}</h2>
         </TabPanel>
       </Tabs>
       {countrylist}

@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Map, TileLayer, Circle } from "react-leaflet";
+import Color from "../Functions/color";
 import "leaflet/dist/leaflet.css";
 import "../Css/map.css";
 
 export default function MapView(props) {
   let [countries, setCountries] = useState("");
+  let [newColor, setNewColor] = useState("");
 
   useEffect(() => {
     setCountries(props.countries);
-  }, [props.countries]);
+    setNewColor(Color(Object.values(props.type).join("")));
+  }, [props]);
 
   return (
     <div>
@@ -18,7 +21,7 @@ export default function MapView(props) {
           return (
             <Circle key={country.country}
               center={[country.countryInfo.lat, country.countryInfo.long]}
-              fillColor="blue"
+              color={newColor}
               radius={country[props.type]}
             />
           );

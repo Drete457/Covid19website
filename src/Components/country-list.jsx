@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { CreateList } from "../Functions/functions";
 import Update from "../Controller/update";
+import Color from "../Functions/color";
 import "react-tabs/style/react-tabs.css";
 import "../Css/country-list.css";
 
 export default function CountryList(props) {
   let [countrylist, setCountryList] = useState(0);
+  let [newColor, setNewColor] = useState("");
 
   useEffect(() => {
+    setNewColor(Color(Object.values(props.type).join("")));
     let firstRun = [];
     Array.from(props.countries).forEach((country) => {
       firstRun.push(
@@ -23,7 +26,7 @@ export default function CountryList(props) {
       );
     });
     setCountryList(firstRun);
-  }, [props.countries]);
+  }, [props]);
 
   return (
     <div className="separators">
@@ -34,6 +37,7 @@ export default function CountryList(props) {
             onClick={() => {
               setCountryList(CreateList(props.countries, "cases"))
               Update("cases");
+              setNewColor("cases");
             }}
           >
             CASES
@@ -43,6 +47,7 @@ export default function CountryList(props) {
             onClick={() => {
               setCountryList(CreateList(props.countries, "deaths"))
               Update("deaths");
+              setNewColor("deaths");
             }}
           >
             DEATHS
@@ -52,6 +57,7 @@ export default function CountryList(props) {
             onClick={() => {
               setCountryList(CreateList(props.countries, "recovered"))
               Update("recovered");
+              setNewColor("recovered");
             }}
           >
             RECOVERED

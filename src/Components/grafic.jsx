@@ -7,12 +7,14 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import Color from "../Functions/color";
 import { dataFormater } from "../Functions/functions";
 import "../Css/grafic.css";
 
 export default function Grafic(props) {
   let [dataToShow, setDataToShow] = useState([]);
   let [dataToDisplay, setDataToDisplay] = useState([]);
+  let [newColor, setNewColor] = useState("");
 
   useEffect(() => {
     setDataToShow(props.dataHistorical[props.type]);
@@ -27,6 +29,7 @@ export default function Grafic(props) {
         }),
       );
     }
+    setNewColor(Color(Object.values(props.type).join("")));
   }, [props, dataToShow]);
 
   return (
@@ -43,7 +46,7 @@ export default function Grafic(props) {
         <XAxis dataKey="name" />
         <YAxis tickFormatter={dataFormater} />
         <Tooltip />
-        <Area type="monotone" dataKey="cases" stroke="#8884d8" fill="#8884d8" />
+        <Area type="monotone" dataKey="cases" stroke={newColor} fill={newColor} />
       </AreaChart>
     </ResponsiveContainer>
   );

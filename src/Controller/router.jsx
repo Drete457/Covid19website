@@ -33,6 +33,7 @@ export default function Router(select) {
           deaths={globalData.deaths}
           recovered={globalData.recovered}
           countries={countriesData}
+          type={type}
         />
       </div>
       <div className="data">

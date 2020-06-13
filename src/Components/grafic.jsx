@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import Color from "../Functions/color";
-import { dataFormater } from "../Functions/functions";
+import { dataFormater } from "../Functions/data_formater";
 import "../Css/grafic.css";
 
 export default function Grafic(props) {

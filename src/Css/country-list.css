@@ -10,7 +10,7 @@
 }
 
 .countryflag {
-  width: 10%;
+  width: 20%;
   height: 4%;
   position: absolute;
   right: 5%;
@@ -20,12 +20,45 @@
   background-color: whitesmoke;
   height: 95vh;
   width: 400px;
-  overflow: auto;
   float: left;
   position: relative;
   margin-bottom: 20px;
+  overflow: -moz-hidden-unscrollable;
 }
 
 .tab {
   text-align: center;
 }
+
+.searchandup{
+ height: 45px;
+}
+
+.arrow{
+  width: 45px;
+}
+
+.search {
+  height: 42px;
+    width: 80%; 
+    font-size: 16px;  
+    border: 1px solid #ddd;
+    margin-left: 1px;
+}
+
+.arrowbutton {
+  height: 45px;
+  margin-left: 2%;
+}
+
+.countrylist{
+  background-color: whitesmoke;
+  height: 77vh;
+  width: 400px;
+  float: left;
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  overflow: auto;
+}
+

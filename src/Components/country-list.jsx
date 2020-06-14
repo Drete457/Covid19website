@@ -1,37 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import CreateList from "../Functions/create_list";
-import Update from "../Controller/update";
 import Color from "../Functions/color";
+import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import "react-tabs/style/react-tabs.css";
 import "../Css/country-list.css";
 
 export default function CountryList(props) {
-  let [countrylist, setCountryList] = useState(0);
-  let [newColor, setNewColor] = useState({})
+  let [countryList, setCountryList] = useState([]);
+  let [newColor, setNewColor] = useState({});
+  let [order, setOrder] = useState(true);
+  let [search, setSearch] = useState("");
 
   useEffect(() => {
     setNewColor({
-      color: Color(Object.values(props.type).join(""))
-  });
+      color: Color(Object.values(props.type).join("")),
+    });
   }, [props.type]);
 
-  useEffect(() => {
-    let firstRun = [];
-    Array.from(props.countries).forEach((country) => {
-      firstRun.push(
-        <div className="countrydiv" key={country.country} >
-          {country.cases} in {country.country}{" "}
-          <img
-            src={country.countryInfo.flag}
-            className="countryflag"
-            alt="countryflag"
-          />
-        </div>,
-      );
-    });
-    setCountryList(firstRun);
-  }, [props.countries]);
+ useEffect(() => {
+    if (countryList.length === 0) {
+      setCountryList(CreateList(Array.from(props.countries), "cases", order));
+    }
+  }, [props, order, countryList]);
 
   return (
     <div className="separators">
@@ -40,8 +31,11 @@ export default function CountryList(props) {
           <Tab
             key="cases"
             onClick={() => {
-              setCountryList(CreateList(props.countries, "cases"))
-              Update("cases");
+              searchCountry(
+                CreateList(props.countries, "cases", order),
+                setCountryList,
+                search,
+              );
             }}
           >
             CASES
@@ -49,8 +43,11 @@ export default function CountryList(props) {
           <Tab
             key="deaths"
             onClick={() => {
-              setCountryList(CreateList(props.countries, "deaths"))
-              Update("deaths");
+              searchCountry(
+                CreateList(props.countries, "deaths", order),
+                setCountryList,
+                search,
+              );
             }}
           >
             DEATHS
@@ -58,8 +55,11 @@ export default function CountryList(props) {
           <Tab
             key="recovered"
             onClick={() => {
-              setCountryList(CreateList(props.countries, "recovered"))
-              Update("recovered");
+              searchCountry(
+                CreateList(props.countries, "recovered", order),
+                setCountryList,
+                search,
+              );
             }}
           >
             RECOVERED
@@ -75,7 +75,48 @@ export default function CountryList(props) {
           <h2>Total Recovered: {props.recovered}</h2>
         </TabPanel>
       </Tabs>
-      {countrylist}
+      <button
+        className="arrowbutton"
+        onClick={() => {
+          setOrder(!order);
+          setCountryList(countryList.reverse());
+        }}
+      >
+        {order ? (
+          <TiArrowSortedUp className="arrow" />
+        ) : (
+          <TiArrowSortedDown className="arrow" />
+        )}
+      </button>
+      <input
+        className="search"
+        type="text"
+        placeholder="search... "
+        value={search}
+        onChange={(event) => {
+          setSearch(event.target.value);
+          searchCountry(
+            CreateList(props.countries, props.type, order),
+            setCountryList,
+            search,
+          );
+        }}
+      />
+      <div className="countrylist">{countryList}</div>
     </div>
   );
+}
+
+function searchCountry(list, set, search, type) {
+  if (search === "") {
+    set(list);
+  } else {
+    let newList = list.filter((value) => {
+      return value.key.toUpperCase().includes(search.toUpperCase())
+        ? value
+        : false;
+    });
+    console.log(newList);
+    set(newList);
+  }
 }

@@ -51,5 +51,8 @@ export default function Router(select) {
 function setUseState(url, set) {
   Data(url).then((result) => {
     set(result);
+  }).catch((error) => {
+    set("Not connect");
+    console.log("not connect");
   });
 }

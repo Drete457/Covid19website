@@ -20,7 +20,7 @@ export default function CountryList(props) {
 
  useEffect(() => {
     if (countryList.length === 0) {
-      setCountryList(CreateList(Array.from(props.countries), "cases", order));
+      setCountryList(CreateList(Array.from(props.countries), props.type, order));
     }
   }, [props, order, countryList]);
 
@@ -98,8 +98,9 @@ export default function CountryList(props) {
           searchCountry(
             CreateList(props.countries, props.type, order),
             setCountryList,
-            search,
+            event.target.value,
           );
+         
         }}
       />
       <div className="countrylist">{countryList}</div>
@@ -107,8 +108,8 @@ export default function CountryList(props) {
   );
 }
 
-function searchCountry(list, set, search, type) {
-  if (search === "") {
+function searchCountry(list, set, search) {
+  if (search.length === 0) {
     set(list);
   } else {
     let newList = list.filter((value) => {
@@ -116,7 +117,6 @@ function searchCountry(list, set, search, type) {
         ? value
         : false;
     });
-    console.log(newList);
     set(newList);
   }
 }

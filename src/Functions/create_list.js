@@ -6,9 +6,9 @@ export default function CreateList(countries, type, order) {
   countries.sort((country1, country2) => {
     return country2[type] - country1[type];
   });
-  let list = countries.map((country) => {
+  let list = countries.map((country, index) => {
     return (
-      <div className="countrydiv" key={country.country} onClick={handleClick}>
+      <div className="countrydiv" key={index} onClick={handleClick}>
         {country[type]} in {country.country}{" "}
         <img
           src={country.countryInfo.flag}

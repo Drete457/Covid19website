@@ -17,9 +17,9 @@ export default function MapView(props) {
     <div>
       <Map id="mapview" className="mapview" center={[38.7071, -9.13549]} zoom={3} maxZoom={30} >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {Array.from(countries).map((country) => {
+        {Array.from(countries).map((country, index) => {
           return (
-            <Circle key={country.country}
+            <Circle key={index}
               center={[country.countryInfo.lat, country.countryInfo.long]}
               color={newColor}
               radius={country[props.type]}

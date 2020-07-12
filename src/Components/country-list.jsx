@@ -94,13 +94,12 @@ export default function CountryList(props) {
         placeholder="search... "
         value={search}
         onChange={(event) => {
-          setSearch(event.target.value);
           searchCountry(
             CreateList(props.countries, props.type, order),
             setCountryList,
-            event.target.value,
+            event.target.value
           );
-         
+          setSearch(event.target.value);
         }}
       />
       <div className="countrylist">{countryList}</div>
@@ -109,7 +108,7 @@ export default function CountryList(props) {
 }
 
 function searchCountry(list, set, search) {
-  if (search.length === 0) {
+ if (search.length === 0) {
     set(list);
   } else {
     let newList = list.filter((value) => {
@@ -117,6 +116,6 @@ function searchCountry(list, set, search) {
         ? value
         : false;
     });
-    set(newList);
-  }
+    if (newList.length > 0) { set(newList); }
+ }
 }

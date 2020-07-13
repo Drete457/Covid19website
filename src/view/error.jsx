@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 
-export function noFetch() {
-    
-}
-
-export function noPage() {
-    
+export default function noPage() {
+    return (
+        <div className="nopage">
+            No page found 
+            404 Error
+        </div>
+    )
 }

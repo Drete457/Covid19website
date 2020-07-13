@@ -79,7 +79,7 @@ export default function CountryList(props) {
         className="arrowbutton"
         onClick={() => {
           setOrder(!order);
-          setCountryList(countryList.reverse());
+          if (countryList === " ") { return " " } else { setCountryList(countryList.reverse()) };
         }}
       >
         {order ? (
@@ -116,6 +116,6 @@ function searchCountry(list, set, search) {
         ? value
         : false;
     });
-    if (newList.length > 0) { set(newList); }
+   if (newList.length > 0) { set(newList); } else { set(" ") };
  }
 }

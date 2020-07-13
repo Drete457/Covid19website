@@ -9,7 +9,7 @@ const urlAllInfo = "https://disease.sh/v2/all";
 const urlCountrysAllInfo = "https://disease.sh/v2/countries";
 const urlHistoricalData = "https://disease.sh/v2/historical/all?lastdays=30";
 
-export default function Router(select) {
+export default function MainController(select) {
   const [globalData, setGlobalData] = useState("");
   const [countriesData, setCountriesData] = useState("");
   const [historicalData, setHistoricalData] = useState("");

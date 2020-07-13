@@ -3,6 +3,7 @@ import Data from "../Service/api";
 import CountryList from "../Components/country-list";
 import MapView from "../Components/map";
 import Grafic from "../Components/grafic";
+import NoPage from "../view/error";
 import "../Css/router.css";
 
 const urlAllInfo = "https://disease.sh/v2/all";
@@ -15,7 +16,10 @@ export default function MainController(select) {
   const [historicalData, setHistoricalData] = useState("");
   let [type, setType] = useState("");
 
-  useEffect(() => {
+  return (
+    <NoPage />
+  )
+ /* useEffect(() => {
     if (globalData.length === 0) {
       setUseState(urlAllInfo, setGlobalData);
       setUseState(urlCountrysAllInfo, setCountriesData);
@@ -45,7 +49,7 @@ export default function MainController(select) {
         </div>
       </div>
     </div>
-  );
+  );*/
 }
 
 function setUseState(url, set) {

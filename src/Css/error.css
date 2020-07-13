@@ -1,8 +1,262 @@
 .nopage{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    position: fixed;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden; /* Hide scrollbars */
+    background:black;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align: center;
+    font-size: xx-large;
 }
+
+@keyframes glow{
+    50%{
+      border-color:lime;
+      width:95%;
+      box-shadow:0px 0px 10px -2px green;
+    }
+    100%{
+      border-color:green;
+      width:35%;
+      box-shadow:0px 0px 10px -2px green;
+    }
+  }
+  
+  .sep{
+    width:35%;
+    border-bottom:2px solid green;
+    margin-bottom:20px;
+    animation:glow 8s infinite;
+  }
+  
+  .container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:black;
+    width:75%;
+    padding:10%;
+    flex-wrap:wrap;
+  }
+  
+  .loader{
+    width:100px;
+    height:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:10px 20px;
+  }
+  
+  @keyframes load{
+    50%{
+      transform:rotatez(180deg) scale(0.2);
+      border-color:orange;
+    }
+    100%{
+      transform:rotatez(360deg) scale(1.1);
+    }
+  }
+  
+  .loader1::before{
+    content:"";
+    color:white;
+    height:30px;
+    width:30px;
+    background:transparent;
+    border-radius:45%;
+    border:25px dotted lime;
+    animation:load 1s infinite ease-in-out;
+  }
+  
+  @keyframes load2{
+    50%{
+      transform:rotatez(180deg);
+      border-radius:55%;
+    }
+    100%{
+      transform:rotatez(360deg);
+    }
+  }
+  
+  .loader2::before{
+    content:"";
+    color:white;
+    height:30px;
+    width:30px;
+    background:transparent;
+    border-radius:10%;
+    border:25px inset orange;
+    animation:load2 1s infinite ease-in-out;
+  }
+  
+  @keyframes load3{
+    50%{
+      transform:rotatez(180deg) scale(1.5);
+      border-style:dotted;
+    }
+    100%{
+      transform:rotatez(360deg) scale(0.9);
+    }
+  }
+  
+  .loader3::before{
+    content:"";
+    color:white;
+    height:30px;
+    width:30px;
+    background:transparent;
+    border-radius:50%;
+    border:15px solid blue;
+    border-color:#1565C0 #26C6DA;
+    animation:load3 2s infinite;
+  }
+  
+  @keyframes load4{
+    50%{
+      transform:rotatez(180deg);
+      border-width:30px;
+    }
+    100%{
+      transform:rotatez(360deg);
+    }
+  }
+  
+  .loader4::before{
+    content:"";
+    color:white;
+    height:30px;
+    width:30px;
+    background:transparent;
+    border-radius:50%;
+    border:15px ridge lime;
+    border-color:lime transparent;
+    animation:load4 1s infinite;
+  }
+  
+  @keyframes load5{
+    40%{
+      transform:rotatez(-180deg);
+      border-width:16px;
+    }
+    80%{
+      transform:rotatez(-360deg);
+    }
+    100%{
+      transform:rotatez(-360deg);
+    }
+  }
+  
+  .loader5::before{
+    content:"";
+    color:white;
+    height:50px;
+    width:50px;
+    background:transparent;
+    border-radius:50%;
+    border:10px dotted lime;
+    border-left-color:transparent;
+    animation:load5 1s infinite ease-in-out;
+  }
+  
+  @keyframes load6{
+    50%{
+      transform:rotatez(180deg);
+      border-width:40px;
+    }
+    100%{
+      transform:rotatez(360deg);
+    }
+  }
+  
+  .loader6::before{
+    content:"";
+    color:white;
+    height:0px;
+    width:0px;
+    background:transparent;
+    border-radius:50%;
+    border:35px ridge red;
+    border-color:indigo lime yellow orangered;
+    animation:load6 .5s infinite;
+  }
+  
+  @keyframes load7{
+    100%{
+      transform:rotatez(360deg);
+    }
+  }
+  
+  .loader7::before{
+    content:"";
+    color:white;
+    height:50px;
+    width:50px;
+    background:transparent;
+    border-radius:50%;
+    border:10px solid blue;
+    border-color:#0277BD #0277BD #0277BD #81D4FA;
+    animation:load7 .6s infinite ease-in-out;
+    box-shadow:0px 0px 40px -2px skyblue;
+  }
+  
+  @keyframes load8{
+    100%{
+      transform:rotatez(360deg);
+    }
+  }
+  
+  .loader8::before{
+    content:"";
+    color:white;
+    height:50px;
+    width:50px;
+    background:transparent;
+    border-radius:50%;
+    border:10px solid transparent;
+    border-color:#039BE5 #039BE5 transparent transparent;
+    animation:load8 .6s infinite;
+  }
+  
+  @keyframes load9{
+    50%{
+      transform:rotatez(180deg) scale(0.6);
+    }
+    100%{
+      transform:rotatez(360deg) scale(1);
+    }
+  }
+  
+  .loader9::before{
+    content:"";
+    color:white;
+    height:50px;
+    width:50px;
+    background:transparent;
+    border-radius:50%;
+    border:20px dashed transparent;
+    border-color:#039BE5 indianred;
+    animation:load9 .6s infinite ease-in-out;
+  }
+  
+  @keyframes load10{
+    50%{
+      transform:rotatez(180deg);
+      border-style:dashed;
+      border-color:red maroon indianred orangered;
+    }
+    100%{
+      transform:rotatez(360deg);
+    }
+  }
+  
+  .loader10::before{
+    content:"";
+    color:white;
+    height:50px;
+    width:50px;
+    background:transparent;
+    border-radius:50%;
+    border:20px solid red;
+    animation:load10 1s infinite;
+  }

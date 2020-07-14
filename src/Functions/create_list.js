@@ -23,6 +23,5 @@ export default function CreateList(countries, type, order) {
 }
 
 function handleClick(country) {
-  console.log("was clicked");
   countryPage(country);
 }

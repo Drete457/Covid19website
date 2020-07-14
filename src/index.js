@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './Css/index.css';
-import MainController from './Controller/maincontroller';
+import React from "react";
+import ReactDOM from "react-dom";
+import View from "./Controller/router";
+import "./Css/index.css";
 
 ReactDOM.render(
-  <MainController select="cases" />, 
-  document.getElementById('root')
+    <View select="cases" />,
+  document.getElementById("root"),
 );

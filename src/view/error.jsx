@@ -7,6 +7,13 @@ export default function noPage() {
       <div className="sep"></div>
       <h1>Page Not Found</h1>
       <h1>Error 404</h1>
+      <button
+        className="returnbutton"
+        style={{ backgroundColor: "#9a4ef1" }}
+        onClick={() => returnMainPage()}
+      >
+        Return Home
+      </button>
       <div className="container">
         <div className="loader loader1"></div>
         <div className="loader loader2"></div>
@@ -21,4 +28,8 @@ export default function noPage() {
       </div>
     </div>
   );
+}
+
+function returnMainPage() {
+  window.location.href="/"
 }

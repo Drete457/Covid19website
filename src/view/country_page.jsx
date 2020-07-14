@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+//import "../Css/error.css";
 
-export function noFetch() {
-    
-}
-
-export function noPage() {
-    
+export default function countryPage() {
+  return (
+    <div className="countrypage">
+      <h1>Teste</h1>
+    </div>
+  );
 }

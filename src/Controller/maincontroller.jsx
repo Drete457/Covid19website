@@ -1,62 +1,32 @@
-import React, { useState, useEffect } from "react";
-import Data from "../Service/api";
+import React from "react";
 import CountryList from "../Components/country-list";
 import MapView from "../Components/map";
 import Grafic from "../Components/grafic";
-import NoPage from "../view/error";
-import "../Css/router.css";
+import "../Css/maincontroller.css";
 
-const urlAllInfo = "https://disease.sh/v2/all";
-const urlCountrysAllInfo = "https://disease.sh/v2/countries";
-const urlHistoricalData = "https://disease.sh/v2/historical/all?lastdays=30";
-
-export default function MainController(select) {
-  const [globalData, setGlobalData] = useState("");
-  const [countriesData, setCountriesData] = useState("");
-  const [historicalData, setHistoricalData] = useState("");
-  let [type, setType] = useState("");
-
-  return (
-    <NoPage />
-  )
- /* useEffect(() => {
-    if (globalData.length === 0) {
-      setUseState(urlAllInfo, setGlobalData);
-      setUseState(urlCountrysAllInfo, setCountriesData);
-      setUseState(urlHistoricalData, setHistoricalData);
-    }
-    setType(Object.values(select));
-  }, [select, globalData]);
-
+export default function MainController(props) {
   return (
     <div className="mainbody" key="mainbody">
       <div className="view" key="view">
         <CountryList
           key="countrylist"
-          cases={globalData.cases}
-          deaths={globalData.deaths}
-          recovered={globalData.recovered}
-          countries={countriesData}
-          type={type}
+          cases={props.globalData.cases}
+          deaths={props.globalData.deaths}
+          recovered={props.globalData.recovered}
+          countries={props.countriesData}
+          type={props.type}
         />
       </div>
       <div className="data">
         <div className="mapview" key="mapview">
-          <MapView key="mapview" countries={countriesData} type={type} />
+          <MapView key="mapview" countries={props.countriesData} type={props.type} />
         </div>
         <div className="graficview" key="graficview">
-          <Grafic dataHistorical={historicalData} type={type} />
+          <Grafic dataHistorical={props.historicalData} type={props.type} />
         </div>
       </div>
     </div>
-  );*/
+  );
 }
 
-function setUseState(url, set) {
-  Data(url).then((result) => {
-    set(result);
-  }).catch((error) => {
-    set("Not connect");
-    console.log("not connect");
-  });
-}
+

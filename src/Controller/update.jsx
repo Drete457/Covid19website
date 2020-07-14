@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import MainController from './maincontroller';
+import View from './router';
 
 export default function update(select) {
     ReactDOM.render(
-      <MainController select={select} />, 
+      <View select={select} />,
       document.getElementById('root')
     );
-  }
+}
+  ////return <Redirect push to="/" />;

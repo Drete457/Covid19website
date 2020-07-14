@@ -1,7 +1,11 @@
 import React from "react";
+//import {BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import View from '../Controller/router';
 import "../Css/error.css";
 
-export default function noPage() {
+export default function NoPage() {
+  const history = useHistory();
   return (
     <div className="nopage">
       <div className="sep"></div>
@@ -10,7 +14,7 @@ export default function noPage() {
       <button
         className="returnbutton"
         style={{ backgroundColor: "#9a4ef1" }}
-        onClick={() => returnMainPage()}
+        onClick={() => history.push("/")}
       >
         Return Home
       </button>
@@ -30,6 +34,27 @@ export default function noPage() {
   );
 }
 
-function returnMainPage() {
-  window.location.href="/"
+/*function returnMainPage() {
+  console.log("entrou")
+  return (
+    <Router>
+    <div>
+      <Switch>
+       <Route component={returnView} />
+        <Redirect to="/" />
+        </Switch>
+      </div>
+      </Router>
+  )
 }
+
+const returnView = () => {
+  return (
+    <div>
+      <View select="cases" />
+    </div>
+  );
+};
+/*function returnMainPage() {
+  window.location.href="/"
+}*/

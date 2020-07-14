@@ -1,5 +1,6 @@
 import React from "react";
 import update from "../Controller/update";
+import countryPage from "../view/country_page";
 
 export default function CreateList(countries, type, order) {
   update(type);
@@ -8,7 +9,7 @@ export default function CreateList(countries, type, order) {
   });
   let list = countries.map((country) => {
     return (
-      <div className="countrydiv" key={country.country} onClick={handleClick}>
+      <div className="countrydiv" key={country.country} onClick={() => { handleClick(country); }}>
         {country[type]} in {country.country}{" "}
         <img
           src={country.countryInfo.flag}
@@ -21,7 +22,7 @@ export default function CreateList(countries, type, order) {
   return order ? list : list.reverse();
 }
 
-function handleClick(event) {
-  event.preventDefault();
+function handleClick(country) {
   console.log("was clicked");
+  countryPage(country);
 }

@@ -1,5 +1,5 @@
 {
-  "name": "virus",
+  "name": "covid19",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -42,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }

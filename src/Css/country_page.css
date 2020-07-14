@@ -1,0 +1,10 @@
+.countrypage {
+    overflow: hidden; /* Hide scrollbars */
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: xx-large;
+  }

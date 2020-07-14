@@ -28,7 +28,7 @@ export default function View(select) {
     <Router>
       <div className="router">
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/Covid19website/">
             <MainController globalData={globalData} countriesData={countriesData} type={type} historicalData={historicalData} />
           </Route>
           <Route path="/Portugal">

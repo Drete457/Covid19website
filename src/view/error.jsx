@@ -12,7 +12,7 @@ export default function NoPage() {
       <button
         className="returnbutton"
         style={{ backgroundColor: "#9a4ef1" }}
-        onClick={() => link.push("/")}
+        onClick={() => link.push("/Covid19website/")}
       >
         Return Home
       </button>

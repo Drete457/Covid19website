@@ -8,7 +8,7 @@ export default function BackButton() {
         <button
             className="backbutton"
             onClick={() => {
-                link.push("/");
+                link.push("/Covid19website/");
                 update();
             }}
         >

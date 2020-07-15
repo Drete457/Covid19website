@@ -20,7 +20,7 @@ export default function Grafic(props) {
   
 
   useEffect(() => {
-    if (dataToShow) {
+    if (!dataToShow) {
       setCountryURL("https://disease.sh/v3/covid-19/historical/" + props.country + "?lastdays=30");
       setDataToShow(countryInformation(countryUrl, setDataToShow));
     }

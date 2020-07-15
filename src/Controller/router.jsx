@@ -5,9 +5,9 @@ import MainController from "./maincontroller";
 import CountryPage from "../view/country_page";
 import NoPage from "../view/error";
 
-const urlAllInfo = "https://disease.sh/v2/all";
-const urlCountrysAllInfo = "https://disease.sh/v2/countries";
-const urlHistoricalData = "https://disease.sh/v2/historical/all?lastdays=30";
+const urlAllInfo = "https://disease.sh/v3/covid-19/all";
+const urlCountrysAllInfo = "https://disease.sh/v3/covid-19/countries";
+const urlHistoricalData = "https://disease.sh/v3/covid-19/historical/all?lastdays=30";
 
 export default function View(select) {
   const [globalData, setGlobalData] = useState("");
@@ -49,6 +49,10 @@ function setUseState(url, set) {
   }).catch((error) => {
     set("Not connect");
   });
+}
+
+export function countryInformation(url, set) {
+  return setUseState(url, set);
 }
 
 const noPage = () => {

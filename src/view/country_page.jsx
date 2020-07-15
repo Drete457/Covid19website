@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import BackButton from "../Functions/backbutton";
 import { BrowserRouter as Router, Redirect } from "react-router-dom";
+import Graphic from '../Components/grafic_country_page';
+import BackButton from "../Functions/backbutton";
 import "../Css/country_page.css";
 
 export default function countryPage(country) {
@@ -41,7 +42,7 @@ function ViewCountry(props) {
         <p>Tests: {country.testsPerOneMillion}</p>
       </div>
       <div className="graphic">
-        <p>Meter um gráfico aqui</p>
+       <Graphic country={country.country} />
         <p>Note: The data above concerns only the past 30 days</p>
       </div>
       <div className="backbutton">

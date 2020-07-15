@@ -6,7 +6,7 @@ export default function BackButton() {
     const link = useHistory();
     return (
         <button
-            className="backbutton"
+            className="rainbow rainbow-1"
             onClick={() => {
                 link.push("/Covid19website/");
                 update();

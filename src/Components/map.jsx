@@ -17,11 +17,11 @@ export default function MapView(props) {
 
   return (
     <div>
-      <Map id="mapview" className="mapview" center={center} zoom={2} minZoom={2} maxZoom={18} maxBounds={maxBounds} >
+      <Map id="mapview" className="mapview" center={center} zoom={2} minZoom={2} maxZoom={10} maxBounds={maxBounds} >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}{y}.png" />
-        {Array.from(countries).map((country, index) => {
+        {Array.from(countries).map((country) => {
           return (
-            <Circle key={index}
+            <Circle key={country.country}
               center={[country.countryInfo.lat, country.countryInfo.long]}
               color={newColor}
               radius={country[props.type]}

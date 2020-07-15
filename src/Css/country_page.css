@@ -1,10 +1,37 @@
 .countrypage {
-    overflow: hidden; /* Hide scrollbars */
-    background: black;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-size: xx-large;
+  overflow: hidden; /* Hide scrollbars */
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.rainbow {
+  background-color: #343a40;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.rainbow-1:hover {
+  background-image: linear-gradient(
+    to right,
+    #e7484f,
+    #f68b1d,
+    #fced00,
+    #009e4f,
+    #00aac3,
+    #732982
+  );
+  animation: slidebg 2s linear infinite;
+}
+
+@keyframes slidebg {
+  to {
+    background-position:20vw;
   }
+}

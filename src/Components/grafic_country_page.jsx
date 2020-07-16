@@ -24,8 +24,7 @@ export default function Grafic(props) {
       setCountryURL("https://disease.sh/v3/covid-19/historical/" + props.country + "?lastdays=30");
       setDataToShow(countryInformation(countryUrl, setDataToShow));
     }
-console.log(countryUrl)
-    console.log(dataToShow)
+
     if (dataToShow) {
       setDataToDisplay(
         Object.keys(dataToShow).map((key) => {
@@ -40,6 +39,10 @@ console.log(countryUrl)
    // setNewColor(Color(Object.values(props.type).join("")));
     
   }, [props, dataToShow, countryUrl]);
+
+  console.log(countryUrl)
+  console.log(dataToShow)
+
 
   return (
     <ResponsiveContainer className="grafic">

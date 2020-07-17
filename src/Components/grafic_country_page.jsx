@@ -27,25 +27,22 @@ export default function Grafic(props) {
       countryInformation(countryUrl, setDataToShow);
     }
     if ("timeline" in dataToShow) {
+      console.log("1")
       const dataToShowFilter = dataToShow["timeline"];
       const dataCases = Object.entries(dataToShowFilter);
       const dataPerCase = dataCases.map(cases => { return cases[1]});
-     
-      let teste = dataPerCase.map((cases) => {
-        Object.keys(cases).map((date) => {
-           const options = { month: "long", day: "numeric" };
+      const dataReady = dataPerCase.map(cases => Object.keys(cases).map((date) => {
+          const options = { month: "long", day: "numeric" };
            return {
              name: new Date(date).toLocaleDateString("en-US", options),
              cases: cases[date],
            };
-         });
-       })
-      console.log(teste)
-     //setDataToDisplay();
+         })
+       )
+     setDataToDisplay(dataReady);
     }
-  }, [props, dataToShow]);
-
-// console.log(dataToDisplay);
+  }, [props, dataToShow, countryUrl]);
+console.log(dataToDisplay);
 
   return (<div></div>);
 }

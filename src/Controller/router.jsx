@@ -7,7 +7,8 @@ import NoPage from "../view/error";
 
 const urlAllInfo = "https://disease.sh/v3/covid-19/all";
 const urlCountrysAllInfo = "https://disease.sh/v3/covid-19/countries";
-const urlHistoricalData = "https://disease.sh/v3/covid-19/historical/all?lastdays=30";
+const urlHistoricalData =
+  "https://disease.sh/v3/covid-19/historical/all?lastdays=30";
 
 export default function View(select) {
   const [globalData, setGlobalData] = useState("");
@@ -29,14 +30,17 @@ export default function View(select) {
       <div className="router">
         <Switch>
           <Route exact path="/Covid19website/">
-            <MainController globalData={globalData} countriesData={countriesData} type={type} historicalData={historicalData} />
+            <MainController
+              globalData={globalData}
+              countriesData={countriesData}
+              type={type}
+              historicalData={historicalData}
+            />
           </Route>
           <Route path="/Portugal">
             <CountryPage />
           </Route>
-          <Route
-            component={noPage}
-          />
+          <Route component={noPage} />
         </Switch>
       </div>
     </Router>
@@ -44,15 +48,17 @@ export default function View(select) {
 }
 
 function setUseState(url, set) {
-  Data(url).then((result) => {
-    set(result);
-  }).catch((error) => {
-    set("Not connect");
-  });
+  Data(url)
+    .then((result) => {
+      set(result);
+    })
+    .catch((error) => {
+      set(error);
+    });
 }
 
 export function countryInformation(url, set) {
-  return setUseState(url, set);
+  setUseState(url, set);
 }
 
 const noPage = () => {

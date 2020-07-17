@@ -13,40 +13,44 @@ import { dataFormater } from "../Functions/data_formater";
 import "../Css/grafic.css";
 
 export default function Grafic(props) {
-  let [dataToShow, setDataToShow] = useState([]);
-  let [dataToDisplay, setDataToDisplay] = useState([]);
-  let [newColor, setNewColor] = useState("");
+  let [dataToShow, setDataToShow] = useState({});
+  let [dataToDisplay, setDataToDisplay] = useState({});
   const [countryUrl, setCountryURL] = useState("");
-  
 
   useEffect(() => {
-    if (!dataToShow) {
-      setCountryURL("https://disease.sh/v3/covid-19/historical/" + props.country + "?lastdays=30");
-      setDataToShow(countryInformation(countryUrl, setDataToShow));
+    setCountryURL(
+      "https://disease.sh/v3/covid-19/historical/" +
+      props.country +
+      "?lastdays=30",
+    );
+    if (!("country" in dataToShow)) {
+      countryInformation(countryUrl, setDataToShow);
     }
-
-    if (dataToShow) {
-      setDataToDisplay(
-        Object.keys(dataToShow).map((key) => {
-          const options = { month: "long", day: "numeric" };
-          return {
-            name: new Date(key).toLocaleDateString("en-US", options),
-            cases: dataToShow[key],
-          };
-        }),
-      );
+    if ("timeline" in dataToShow) {
+      const dataToShowFilter = dataToShow["timeline"];
+      const dataCases = Object.entries(dataToShowFilter);
+      const dataPerCase = dataCases.map(cases => { return cases[1]});
+     
+      let teste = dataPerCase.map((cases) => {
+        Object.keys(cases).map((date) => {
+           const options = { month: "long", day: "numeric" };
+           return {
+             name: new Date(date).toLocaleDateString("en-US", options),
+             cases: cases[date],
+           };
+         });
+       })
+      console.log(teste)
+     //setDataToDisplay();
     }
-   // setNewColor(Color(Object.values(props.type).join("")));
-    
-  }, [props, dataToShow, countryUrl]);
+  }, [props, dataToShow]);
 
-  console.log(countryUrl)
-  console.log(dataToShow)
+// console.log(dataToDisplay);
 
-
-  return (
-    <ResponsiveContainer className="grafic">
-      <LineChart
+  return (<div></div>);
+}
+/* <ResponsiveContainer className="grafic">
+     <LineChart
         data={dataToDisplay}
         margin={{
           top: 10,
@@ -58,8 +62,11 @@ export default function Grafic(props) {
         <XAxis dataKey="name" />
         <YAxis tickFormatter={dataFormater} />
         <Tooltip />
-        <Line type="monotone" dataKey="cases" stroke={newColor} fill={newColor} />
+        <Line
+          type="monotone"
+          dataKey="cases"
+          stroke={newColor}
+          fill={newColor}
+        />
       </LineChart>
-    </ResponsiveContainer>
-  );
-}
+    </ResponsiveContainer>*/

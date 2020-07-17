@@ -41,7 +41,7 @@ function ViewCountry(props) {
       <p>Deaths: {country.deathsPerOneMillion}</p>
         <p>Tests: {country.testsPerOneMillion}</p>
       </div>
-      <div className="graphic">
+      <div className="graficviewcountry">
        <Graphic country={country.country} />
         <p>Note: The data above concerns only the past 30 days</p>
       </div>

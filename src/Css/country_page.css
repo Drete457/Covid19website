@@ -35,3 +35,15 @@
     background-position:20vw;
   }
 }
+
+.graficviewcountry {
+  background-color: whitesmoke;
+  margin-left: 1.5%;
+  min-height: 350px;
+  min-width: 350px;
+  height: 46vh;
+  width: 75vw;
+  overflow: hidden;
+  float: left;
+  position: relative;
+}

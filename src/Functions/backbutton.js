@@ -9,7 +9,7 @@ export default function BackButton() {
       className="rainbow rainbow-1"
       onClick={() => {
           link.push("/Covid19website/");
-          update();
+          update("cases");
       }}
     >
       Go back

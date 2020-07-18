@@ -18,9 +18,11 @@ export default function CountryList(props) {
     });
   }, [props.type]);
 
- useEffect(() => {
+  useEffect(() => {
     if (countryList.length === 0) {
-      setCountryList(CreateList(Array.from(props.countries), props.type, order));
+      setCountryList(
+        CreateList(Array.from(props.countries), props.type, order),
+      );
     }
   }, [props, order, countryList]);
 
@@ -79,7 +81,11 @@ export default function CountryList(props) {
         className="arrowbutton"
         onClick={() => {
           setOrder(!order);
-          if (countryList === " ") { return " " } else { setCountryList(countryList.reverse()) };
+          if (countryList === " ") {
+            return " ";
+          } else {
+            setCountryList(countryList.reverse());
+          }
         }}
       >
         {order ? (
@@ -97,7 +103,7 @@ export default function CountryList(props) {
           searchCountry(
             CreateList(props.countries, props.type, order),
             setCountryList,
-            event.target.value
+            event.target.value,
           );
           setSearch(event.target.value);
         }}
@@ -108,7 +114,7 @@ export default function CountryList(props) {
 }
 
 function searchCountry(list, set, search) {
- if (search.length === 0) {
+  if (search.length === 0) {
     set(list);
   } else {
     let newList = list.filter((value) => {
@@ -116,6 +122,10 @@ function searchCountry(list, set, search) {
         ? value
         : false;
     });
-   if (newList.length > 0) { set(newList); } else { set(" ") };
- }
+    if (newList.length > 0) {
+      set(newList);
+    } else {
+      set(" ");
+    }
+  }
 }

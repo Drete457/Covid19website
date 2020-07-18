@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import "../Css/error.css";
 
 export default function NoPage() {
@@ -31,4 +31,3 @@ export default function NoPage() {
     </div>
   );
 }
-

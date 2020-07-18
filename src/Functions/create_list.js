@@ -9,10 +9,14 @@ export default function CreateList(countries, type, order) {
   });
   let list = countries.map((country) => {
     return (
-      <div className="countrydiv" key={country.country} onClick={(event) => {
-        event.preventDefault();
-        handleClick(country);
-      }}>
+      <div
+        className="countrydiv"
+        key={country.country}
+        onClick={(event) => {
+          event.preventDefault();
+          handleClick(country);
+        }}
+      >
         {country[type]} in {country.country}{" "}
         <img
           src={country.countryInfo.flag}

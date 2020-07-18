@@ -1,4 +1,3 @@
-
 # Covid-19 Website Status
 
 My personal website about Covid 19, made in Reactjs

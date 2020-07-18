@@ -46,7 +46,12 @@ export default function Grafic(props) {
         <XAxis dataKey="name" />
         <YAxis tickFormatter={dataFormater} />
         <Tooltip />
-        <Area type="monotone" dataKey="cases" stroke={newColor} fill={newColor} />
+        <Area
+          type="monotone"
+          dataKey="cases"
+          stroke={newColor}
+          fill={newColor}
+        />
       </AreaChart>
     </ResponsiveContainer>
   );

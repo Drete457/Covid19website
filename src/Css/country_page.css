@@ -15,7 +15,8 @@
   font-size: 1.5em;
 }
 
-.totals, .million {
+.totals,
+.million {
   text-align: left;
   font-size: 1.5em;
   float: left;
@@ -45,7 +46,7 @@
 
 @keyframes slidebg {
   to {
-    background-position:20vw;
+    background-position: 20vw;
   }
 }
 

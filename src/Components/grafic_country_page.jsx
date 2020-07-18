@@ -6,10 +6,10 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  ResponsiveContainer,
-  CartesianGrid,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
+import Color from "../Functions/color";
 import { dataFormater } from "../Functions/data_formater";
 import "../Css/grafic.css";
 
@@ -59,31 +59,15 @@ console.log(dataToDisplay)
       bottom: 0,
     }}
   >
-    
     <XAxis dataKey="name" />
     <YAxis tickFormatter={dataFormater} />
-    <Tooltip />
-    <Legend />
-    <Line type="monotone" dataKey="cases" stroke="#82ca9d" />
-    <Line type="monotone" dataKey="deaths" stroke="#8884d8" activeDot={{ r: 8 }} />
-    <Line type="monotone" dataKey="recovered" stroke="#8880d8" activeDot={{ r: 8 }} />
+        <Tooltip />
+        <Legend />
+    <Line type="monotone" dataKey="cases" stroke={Color("cases")} fill= {Color("cases")} activeDot={{ r: 8 }} />
+    <Line type="monotone" dataKey="deaths" stroke={Color("deaths")} fill= {Color("deaths")} activeDot={{ r: 8 }} />
+    <Line type="monotone" dataKey="recovered" stroke={Color("recovered")} fill= {Color("recovered")} activeDot={{ r: 8 }} />
   </LineChart>
   </ResponsiveContainer>
   );
 }
-/*   <ResponsiveContainer className="grafic">
-      <LineChart
-        data={dataToDisplay}
-        margin={{
-          top: 10,
-          right: 30,
-          left: 10,
-          bottom: 0,
-        }}
-      >
-        <XAxis dataKey="name" />
-        <YAxis tickFormatter={dataFormater} />
-        <Tooltip />
-        <Line type="monotone" dataKey="cases" stroke="red" fill="red" />
-      </LineChart>
-    </ResponsiveContainer>*/
+

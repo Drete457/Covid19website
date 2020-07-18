@@ -4,8 +4,9 @@
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+}
+
+.nameandflag, .totals, .million {
   font-size: xx-large;
 }
 
@@ -37,7 +38,7 @@
 }
 
 .graficviewcountry {
-  background-color: whitesmoke;
+  background-color: black;
   margin-left: 1.5%;
   min-height: 350px;
   min-width: 350px;

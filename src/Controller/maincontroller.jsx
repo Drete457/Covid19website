@@ -24,6 +24,7 @@ export default function MainController(props) {
         <div className="graficview" key="graficview">
           <Grafic dataHistorical={props.historicalData} type={props.type} />
         </div>
+        <p className="repository">Create 2020 - Repository <a href="https://github.com/Drete457/Covid19website">Here</a></p>
       </div>
     </div>
   );

@@ -18,12 +18,13 @@ export default function Grafic(props) {
   const [countryUrl, setCountryURL] = useState("");
 
   useEffect(() => {
-    setCountryURL(
-      "https://disease.sh/v3/covid-19/historical/" +
+    if (!("country" in dataToShow)) {
+      console.log("entrou")
+      setCountryURL(
+        "https://disease.sh/v3/covid-19/historical/" +
         props.country +
         "?lastdays=30",
-    );
-    if (!("country" in dataToShow)) {
+      );
       countryInformation(countryUrl, setDataToShow);
     }
     if ("timeline" in dataToShow) {
@@ -42,7 +43,6 @@ export default function Grafic(props) {
           recovered: dataPerCase[2][date],
         };
       });
-
       setDataToDisplay(dataReady);
     }
   }, [props, dataToShow, countryUrl]);

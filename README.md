@@ -18,4 +18,4 @@ See the page [here](https://drete457.github.io/Covid19website/ "here").
 - ReactTabs
 - ReactIcons
 - Recharts
-- https://disease.sh/v3/ API
+- API: https://disease.sh/v3/

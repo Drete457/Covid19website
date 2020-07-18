@@ -25,10 +25,10 @@ function ViewCountry(props) {
       <h1>{country.country}</h1>
       <img
           src={country.countryInfo.flag}
-          className="countryflag"
-          alt="countryflag"
+          className="countryflagpage"
+          alt="countryflagpage"
         />
-      </div>
+        </div>
       <div className="totals">
       <h2>{date}</h2>
       <p>Cases: {country.todayCases}</p>
@@ -43,7 +43,6 @@ function ViewCountry(props) {
       </div>
       <div className="grafic">
        <Graphic country={country.country} />
-       
       </div>
       <p>Note: The data above concerns only the past 30 days</p>
       <div className="backbutton">

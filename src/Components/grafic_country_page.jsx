@@ -47,27 +47,44 @@ export default function Grafic(props) {
       setDataToDisplay(dataReady);
     }
   }, [props, dataToShow, countryUrl]);
-console.log(dataToDisplay)
+
   return (
     <ResponsiveContainer className="graficviewcountry">
-    <LineChart
-    data={dataToDisplay}
-    margin={{
-      top: 10,
-      right: 30,
-      left: 10,
-      bottom: 0,
-    }}
-  >
-    <XAxis dataKey="name" />
-    <YAxis tickFormatter={dataFormater} />
+      <LineChart
+        data={dataToDisplay}
+        margin={{
+          top: 10,
+          right: 30,
+          left: 10,
+          bottom: 0,
+        }}
+      >
+        <XAxis dataKey="name" />
+        <YAxis tickFormatter={dataFormater} />
         <Tooltip />
         <Legend />
-    <Line type="monotone" dataKey="cases" stroke={Color("cases")} fill= {Color("cases")} activeDot={{ r: 8 }} />
-    <Line type="monotone" dataKey="deaths" stroke={Color("deaths")} fill= {Color("deaths")} activeDot={{ r: 8 }} />
-    <Line type="monotone" dataKey="recovered" stroke={Color("recovered")} fill= {Color("recovered")} activeDot={{ r: 8 }} />
-  </LineChart>
-  </ResponsiveContainer>
+        <Line
+          type="monotone"
+          dataKey="cases"
+          stroke={Color("cases")}
+          fill={Color("cases")}
+          activeDot={{ r: 8 }}
+        />
+        <Line
+          type="monotone"
+          dataKey="deaths"
+          stroke={Color("deaths")}
+          fill={Color("deaths")}
+          activeDot={{ r: 8 }}
+        />
+        <Line
+          type="monotone"
+          dataKey="recovered"
+          stroke={Color("recovered")}
+          fill={Color("recovered")}
+          activeDot={{ r: 8 }}
+        />
+      </LineChart>
+    </ResponsiveContainer>
   );
 }
-

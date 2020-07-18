@@ -32,7 +32,8 @@ export default function CountryList(props) {
         <TabList key="tablist" className="tablist">
           <Tab
             key="cases"
-            onClick={() => {
+            onClick={(event) => {
+              event.preventDefault();
               searchCountry(
                 CreateList(props.countries, "cases", order),
                 setCountryList,
@@ -44,7 +45,8 @@ export default function CountryList(props) {
           </Tab>
           <Tab
             key="deaths"
-            onClick={() => {
+            onClick={(event) => {
+              event.preventDefault();
               searchCountry(
                 CreateList(props.countries, "deaths", order),
                 setCountryList,
@@ -56,7 +58,8 @@ export default function CountryList(props) {
           </Tab>
           <Tab
             key="recovered"
-            onClick={() => {
+            onClick={(event) => {
+              event.preventDefault();
               searchCountry(
                 CreateList(props.countries, "recovered", order),
                 setCountryList,

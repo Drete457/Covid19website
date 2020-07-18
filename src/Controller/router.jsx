@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Data from "../Service/api";
-import DataCountryPage from "../Service/apicountrypage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainController from "./maincontroller";
 import CountryPage from "../view/country_page";
@@ -59,13 +58,7 @@ function setUseState(url, set) {
 }
 
 export function countryInformation(url, set) {
-  DataCountryPage(url)
-  .then((result) => {
-    set(result);
-  })
-  .catch((error) => {
-    set(error);
-  });
+  setUseState(url, set);
 }
 
 const noPage = () => {

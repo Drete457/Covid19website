@@ -18,7 +18,7 @@ export default function Grafic(props) {
   const [countryUrl, setCountryURL] = useState("");
 
   useEffect(() => {
-    if (!("country" in dataToShow)) {
+    if (!("country" in dataToShow) && !("message" in dataToShow)) {
       setCountryURL(
         "https://disease.sh/v3/covid-19/historical/" +
         props.country +

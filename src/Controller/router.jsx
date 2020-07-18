@@ -58,7 +58,7 @@ function setUseState(url, set) {
 }
 
 export function countryInformation(url, set) {
-  setUseState(url, set);
+    setUseState(url, set);
 }
 
 const noPage = () => {

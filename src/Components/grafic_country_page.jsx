@@ -19,7 +19,6 @@ export default function Grafic(props) {
 
   useEffect(() => {
     if (!("country" in dataToShow)) {
-      console.log("entrou")
       setCountryURL(
         "https://disease.sh/v3/covid-19/historical/" +
         props.country +

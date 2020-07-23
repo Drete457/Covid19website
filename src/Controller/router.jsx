@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainController from "./maincontroller";
 import CountryPage from "../view/country_page";
 import NoPage from "../view/error";
+import update from "../Controller/update";
 
 const urlAllInfo = "https://disease.sh/v3/covid-19/all";
 const urlCountrysAllInfo = "https://disease.sh/v3/covid-19/countries";
@@ -18,9 +19,14 @@ export default function View(select) {
 
   useEffect(() => {
     if (globalData.length === 0) {
-      setUseState(urlAllInfo, setGlobalData);
-      setUseState(urlCountrysAllInfo, setCountriesData);
-      setUseState(urlHistoricalData, setHistoricalData);
+      try {
+        setUseState(urlAllInfo, setGlobalData);
+        setUseState(urlCountrysAllInfo, setCountriesData);
+        setUseState(urlHistoricalData, setHistoricalData);
+      } catch (error) {
+        console.log(error);
+        update("cases");
+      }
     }
     setType(Object.values(select));
   }, [select, globalData]);

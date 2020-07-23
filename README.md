@@ -4,9 +4,6 @@ My personal website about Covid 19, made in Reactjs
 
 ## Description
 
-Still Demo:
-Need to finish: - Country Page CSS and Graphic
-
 See the page [here](https://drete457.github.io/Covid19website/ "here").
 
 ## Tecnologies

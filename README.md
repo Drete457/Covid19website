@@ -4,7 +4,7 @@ My personal website about Covid 19, made in Reactjs
 
 ## Description
 
-See the page [here](https://drete457.github.io/Covid19website/ "here").
+See the page [here](https://drete457.github.io/covid19website/ "here").
 
 ## Tecnologies
 

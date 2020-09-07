@@ -44,10 +44,7 @@ export default function View(select) {
               <Switch>
                 <Route exact path="/">
                   <MainController
-                    globalData={globalData}
-                    countriesData={countriesData}
                     type={type}
-                    historicalData={historicalData}
                   />
                 </Route>
                 <Route path="/Portugal">

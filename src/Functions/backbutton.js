@@ -5,7 +5,7 @@ import update from "../Controller/update";
 export default function BackButton() {
   const link = useHistory();
   return (
-    <Link to="/Covid19website/">
+    <Link to="/">
     <button
       className="rainbow rainbow-1"
       onClick={() => {

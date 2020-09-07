@@ -8,7 +8,7 @@ See the page [here](https://drete457.github.io/Covid19website/ "here").
 
 ## Tecnologies
 
-- HTML5/Css/
+- HTML5/CSS/JavaScript
 - Reactjs
 - ReactRouter
 - ReactLeaflet

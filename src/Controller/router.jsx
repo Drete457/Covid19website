@@ -19,13 +19,11 @@ export default function View(select) {
 
   useEffect(() => {
     if (globalData.length === 0) {
-      console.log("entrou")
       try {
         setUseState(urlAllInfo, setGlobalData);
         setUseState(urlCountrysAllInfo, setCountriesData);
         setUseState(urlHistoricalData, setHistoricalData);
       } catch (error) {
-        console.log(error);
         update("cases");
       }
     }

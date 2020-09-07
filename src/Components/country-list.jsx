@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import CreateList from "../Functions/create_list";
 import Color from "../Functions/color";
+import { GlobalData } from "../Context/GlobalData";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import "react-tabs/style/react-tabs.css";
 import "../Css/country-list.css";
+import { CountriesData } from "../Context/CountriesData";
 
 export default function CountryList(props) {
+  const { globalData } = useContext(GlobalData);
+  const { countriesData } = useContext(CountriesData);
   let [countryList, setCountryList] = useState([]);
   let [newColor, setNewColor] = useState({});
   let [order, setOrder] = useState(true);
@@ -21,10 +25,10 @@ export default function CountryList(props) {
   useEffect(() => {
     if (countryList.length === 0) {
       setCountryList(
-        CreateList(Array.from(props.countries), props.type, order),
+        CreateList(Array.from(countriesData), props.type, order),
       );
     }
-  }, [props, order, countryList]);
+  }, [props, countriesData, order, countryList]);
 
   return (
     <div className="separators">
@@ -35,7 +39,7 @@ export default function CountryList(props) {
             onClick={(event) => {
               event.preventDefault();
               searchCountry(
-                CreateList(props.countries, "cases", order),
+                CreateList(countriesData, "cases", order),
                 setCountryList,
                 search,
               );
@@ -48,7 +52,7 @@ export default function CountryList(props) {
             onClick={(event) => {
               event.preventDefault();
               searchCountry(
-                CreateList(props.countries, "deaths", order),
+                CreateList(countriesData, "deaths", order),
                 setCountryList,
                 search,
               );
@@ -61,7 +65,7 @@ export default function CountryList(props) {
             onClick={(event) => {
               event.preventDefault();
               searchCountry(
-                CreateList(props.countries, "recovered", order),
+                CreateList(countriesData, "recovered", order),
                 setCountryList,
                 search,
               );
@@ -71,13 +75,13 @@ export default function CountryList(props) {
           </Tab>
         </TabList>
         <TabPanel style={newColor} key="casesview" className="tab">
-          <h2>Total Cases: {props.cases}</h2>
+          <h2>Total Cases: {globalData.cases}</h2>
         </TabPanel>
         <TabPanel style={newColor} key="deathsview" className="tab">
-          <h2>Total Deaths: {props.deaths}</h2>
+          <h2>Total Deaths: {globalData.deaths}</h2>
         </TabPanel>
         <TabPanel style={newColor} key="recoveredview" className="tab">
-          <h2>Total Recovered: {props.recovered}</h2>
+          <h2>Total Recovered: {globalData.recovered}</h2>
         </TabPanel>
       </Tabs>
       <button
@@ -104,7 +108,7 @@ export default function CountryList(props) {
         value={search}
         onChange={(event) => {
           searchCountry(
-            CreateList(props.countries, props.type, order),
+            CreateList(countriesData, props.type, order),
             setCountryList,
             event.target.value,
           );

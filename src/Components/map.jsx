@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Map, TileLayer, Circle } from "react-leaflet";
 import Color from "../Functions/color";
+import { CountriesData } from "../Context/CountriesData";
 import "leaflet/dist/leaflet.css";
 import "../Css/map.css";
 
 export default function MapView(props) {
+  const { countriesData } = useContext(CountriesData);
   let [countries, setCountries] = useState("");
   let [newColor, setNewColor] = useState("");
   const maxBounds = [
@@ -14,9 +16,9 @@ export default function MapView(props) {
   const center = [38.7071, -9.13549];
 
   useEffect(() => {
-    setCountries(props.countries);
+    setCountries(countriesData);
     setNewColor(Color(Object.values(props.type).join("")));
-  }, [props]);
+  }, [props, countriesData]);
 
   return (
     <div>

@@ -3,7 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import update from "../Controller/update";
 
 export default function BackButton() {
-  const link = useHistory();
+  //const link = useHistory();
   return (
     <Link to="/">
     <button

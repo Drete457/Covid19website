@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   AreaChart,
   Area,
@@ -9,14 +9,16 @@ import {
 } from "recharts";
 import Color from "../Functions/color";
 import { dataFormater } from "../Functions/data_formater";
+import { HistoricalData } from "../Context/HistoricalData";
 
 export default function Grafic(props) {
+  const { historicalData } = useContext(HistoricalData);
   let [dataToShow, setDataToShow] = useState([]);
   let [dataToDisplay, setDataToDisplay] = useState([]);
   let [newColor, setNewColor] = useState("");
 
   useEffect(() => {
-    setDataToShow(props.dataHistorical[props.type]);
+    setDataToShow(historicalData[props.type]);
     if (dataToShow) {
       setDataToDisplay(
         Object.keys(dataToShow).map((key) => {
@@ -29,7 +31,7 @@ export default function Grafic(props) {
       );
     }
     setNewColor(Color(Object.values(props.type).join("")));
-  }, [props, dataToShow]);
+  }, [props, dataToShow, historicalData]);
 
   return (
     <ResponsiveContainer className="grafic">

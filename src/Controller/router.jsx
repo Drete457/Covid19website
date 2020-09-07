@@ -5,6 +5,9 @@ import MainController from "./maincontroller";
 import CountryPage from "../view/country_page";
 import NoPage from "../view/error";
 import update from "../Controller/update";
+import { GlobalData } from "../Context/GlobalData";
+import { CountriesData } from "../Context/CountriesData";
+import { HistoricalData } from "../Context/HistoricalData";
 
 const urlAllInfo = "https://disease.sh/v3/covid-19/all";
 const urlCountrysAllInfo = "https://disease.sh/v3/covid-19/countries";
@@ -32,22 +35,30 @@ export default function View(select) {
 
   return (
     <Router>
-      <div className="router">
-        <Switch>
-          <Route exact path="/">
-            <MainController
-              globalData={globalData}
-              countriesData={countriesData}
-              type={type}
-              historicalData={historicalData}
-            />
-          </Route>
-          <Route path="/Portugal">
-            <CountryPage />
-          </Route>
-          <Route component={noPage} />
-        </Switch>
-      </div>
+      <GlobalData.Provider value={{ globalData, setGlobalData }}>
+        <CountriesData.Provider value={{ countriesData, setCountriesData }}>
+          <HistoricalData.Provider
+            value={{ historicalData, setHistoricalData }}
+          >
+            <div className="router">
+              <Switch>
+                <Route exact path="/">
+                  <MainController
+                    globalData={globalData}
+                    countriesData={countriesData}
+                    type={type}
+                    historicalData={historicalData}
+                  />
+                </Route>
+                <Route path="/Portugal">
+                  <CountryPage />
+                </Route>
+                <Route component={noPage} />
+              </Switch>
+            </div>
+          </HistoricalData.Provider>
+        </CountriesData.Provider>
+      </GlobalData.Provider>
     </Router>
   );
 }

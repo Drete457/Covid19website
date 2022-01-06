@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import update from "../Controller/update";
 
 export default function BackButton() {
